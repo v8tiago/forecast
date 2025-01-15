@@ -1,0 +1,11 @@
+{
+  "instrumentationKey": "sua-instrumentation-key-aqui",
+  "sampling": {
+    "percentage": 100
+  },
+  "cloud": {
+    "role": {
+      "name": "micronaut-app"
+    }
+  }
+}

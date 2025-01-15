@@ -1,0 +1,21 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <appender name="APPLICATION_INSIGHTS" class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
+        <instrumentationKey>sua-instrumentation-key-aqui</instrumentationKey>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="APPLICATION_INSIGHTS"/>
+    </root>
+</configuration>

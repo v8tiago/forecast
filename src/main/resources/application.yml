@@ -1,0 +1,33 @@
+micronaut:
+  application:
+    name: forecast
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  metrics:
+    enabled: true
+    export:
+      applicationinsights:
+        enabled: true
+        instrumentation-key: "sua-instrumentation-key-aqui"
+
+datasources:
+  default:
+    db-type: ${DB_TYPE}
+    dialect: ${DB_DIALECT}
+    driver-class-name: ${DB_DRIVER_CLASS_NAME}
+    transaction-manager: ${DB_TRANSACTION_MANAGER}
+    url: ${DB_URL}
+    password: ${DB_PASSWORD}
+    username: ${DB_USERNAME}
+
+management:
+  endpoints:
+    enabled: true
+    all:
+      enabled: true

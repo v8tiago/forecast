@@ -1,0 +1,45 @@
+openapi: 3.0.1
+info:
+  title: Forecast API
+  description: API para gerenciamento de forecast
+  version: 1.0.0
+paths:
+  /enterprise/{id}:
+    get:
+      operationId: getEnterprise
+      tags:
+        - Enterprise
+      summary: Obter informações de uma enterprise
+      description: Retorna os detalhes de uma enterprise com base no ID fornecido.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da enterprise
+          schema:
+            type: integer
+            example: 123
+      responses:
+        '200':
+          description: Detalhes da enterprise
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+        '404':
+          description: Enterprise não encontrada
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Enterprise:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID da enterprise
+          example: 1
+        name:
+          type: string
+          description: Nome da enterprise
+          example: Rubix
